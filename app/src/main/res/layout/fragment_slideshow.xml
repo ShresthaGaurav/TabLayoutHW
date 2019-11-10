@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter first no"
+        android:inputType="numberDecimal"
         android:layout_margin="10dp"/>
 
     <EditText
@@ -17,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter second no"
+        android:inputType="numberDecimal"
         android:layout_margin="10dp"/>
     <Button
         android:id="@+id/btnCaluclate"
@@ -28,5 +30,6 @@
         android:id="@+id/resultadd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:textSize="18dp"/>
 </LinearLayout>

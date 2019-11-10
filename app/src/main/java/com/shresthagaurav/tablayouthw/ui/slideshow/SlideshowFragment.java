@@ -1,6 +1,7 @@
 package com.shresthagaurav.tablayouthw.ui.slideshow;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,33 +14,44 @@ import androidx.fragment.app.Fragment;
 
 import com.shresthagaurav.tablayouthw.R;
 
+import java.text.DecimalFormat;
+
 public class SlideshowFragment extends Fragment {
 
-    private EditText etFirst,etSecond;
+    private EditText etFirst, etSecond;
     private Button btnCalculate;
     private TextView txresult;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_slideshow, container, false);
+        View view = inflater.inflate(R.layout.fragment_slideshow, container, false);
         etFirst = view.findViewById(R.id.etFirst);
         etSecond = view.findViewById(R.id.etSecond);
         btnCalculate = view.findViewById(R.id.btnCaluclate);
-        txresult=view.findViewById(R.id.resultadd);
+        txresult = view.findViewById(R.id.resultadd);
 
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                double first, second, result;
+                DecimalFormat decimalFormat= new DecimalFormat("0.00");
+                if (!TextUtils.isEmpty(etFirst.getText().toString())) {
+                    first = Double.parseDouble(etFirst.getText().toString());
+                    if (!TextUtils.isEmpty(etSecond.getText().toString())) {
+                        second = Double.parseDouble(etSecond.getText().toString());
+                        result = first + second;
+                        txresult.setText(""+decimalFormat.format(first)+" + "+decimalFormat.format(second)+" = "+ decimalFormat.format(result));
 
-                int first,second,result;
-                first =Integer.parseInt(etFirst.getText().toString());
-                second =Integer.parseInt(etSecond.getText().toString());
+                    }else{
+                        etSecond.setError("please enter value");
+                    }
 
 
-                result = first + second;
-                txresult.setText(String.valueOf(result));
-
+                }else{
+                    etFirst.setError("please enter value");
+                }
             }
         });
         return view;
-    }}
+    }
+}

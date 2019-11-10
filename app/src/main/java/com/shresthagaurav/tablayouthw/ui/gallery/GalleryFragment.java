@@ -1,6 +1,7 @@
 package com.shresthagaurav.tablayouthw.ui.gallery;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,11 +34,15 @@ public class GalleryFragment extends Fragment {
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!TextUtils.isEmpty(etradius.getText().toString())){
                 DecimalFormat decimalFormat= new DecimalFormat("0.00");
                 double first, result;
                 first = Double.parseDouble(etradius.getText().toString());
                 result = ((22 * first * first)/7);
-                txresult.setText(decimalFormat.format(result));
+                txresult.setText("Area of circle with radius "+decimalFormat.format(first)+" is "+decimalFormat.format(result));}
+                else{
+                    etradius.setError("please enter value");
+                }
             }
         });
         return root;
