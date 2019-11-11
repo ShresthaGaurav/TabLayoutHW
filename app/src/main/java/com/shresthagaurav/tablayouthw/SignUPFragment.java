@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.shresthagaurav.tablayouthw.implement.InterfaceClassIMPL;
 import com.shresthagaurav.tablayouthw.implement.TabLayoutInterface;
-import com.shresthagaurav.tablayouthw.model.Datacenter;
+import model.Datacenter;
 
 
 /**

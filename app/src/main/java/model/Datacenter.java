@@ -1,4 +1,4 @@
-package com.shresthagaurav.tablayouthw.model;
+package model;
 
 public class Datacenter {
     private String name;

@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.shresthagaurav.tablayouthw.implement.InterfaceClassIMPL;
 import com.shresthagaurav.tablayouthw.implement.TabLayoutInterface;
-import com.shresthagaurav.tablayouthw.model.Datacenter;
+import model.Datacenter;
 
 
 /**
@@ -27,9 +27,7 @@ public class LoginFragment extends Fragment {
     Button btnlogin;
 
 
-    public LoginFragment() {
-        // Required empty public constructor
-    }
+
 
 
     @Override
@@ -50,8 +48,7 @@ public class LoginFragment extends Fragment {
     }
 
     public void DataStore() {
-        Datacenter datacenter = new Datacenter();
-        String name = "", password = "";
+               String name = "", password = "";
         if (!TextUtils.isEmpty(loginNmae.getText().toString())) {
             name = loginNmae.getText().toString();
 
@@ -72,6 +69,8 @@ public class LoginFragment extends Fragment {
             Intent intent = new Intent(getActivity(),NavMain.class);
             intent.putExtra("names",name);
             startActivity(intent);
+            loginNmae.setText("");
+            LoginPasssword.setText("");
         }else{
             Toast.makeText(getActivity(), "Login failed\nplease check ! " , Toast.LENGTH_SHORT).show();
 

@@ -1,6 +1,6 @@
 package com.shresthagaurav.tablayouthw.implement;
 
-import com.shresthagaurav.tablayouthw.model.Datacenter;
+import model.Datacenter;
 
 public interface TabLayoutInterface {
     boolean adduser(Datacenter dc);
